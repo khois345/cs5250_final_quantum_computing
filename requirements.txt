@@ -1,0 +1,8 @@
+# This file is used to install the required packages for the project using pip
+# I recommend using a Conda environment to manage dependencies and avoid conflicts with other projects.
+
+# To install the packages, run the following command:
+# pip install -r requirements.txt
+
+qiskit
+qiskit-aer
