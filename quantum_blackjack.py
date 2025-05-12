@@ -32,9 +32,9 @@ def draw_card():
     counts = result.get_counts()
 
     # Convert the measured binary string to an integer (1-10 for card values)
-    binary_result = list(counts.keys())[0]
-    card_value = int(binary_result, 2) % 10 + 1
-    return card_value
+    binaryResult = list(counts.keys())[0]
+    cardValue = int(binaryResult, 2) % 10 + 1
+    return cardValue
 
 
 def play_blackjack():
@@ -47,7 +47,7 @@ def play_blackjack():
     print(f"Dealer shows: [{dealer[0]}, ?]")
 
     while sum(player) < 21:
-        move = input("Hit or stand? (h/s): ").lower()
+        move = input("Hit or stand? (enter h or s): ").lower()
         if move == 'h':
             card = draw_card()
             player.append(card)
@@ -69,14 +69,16 @@ def play_blackjack():
         dealer.append(card)
         print(f"Dealer draws {card}, total: {sum(dealer)}")
     
-    player_total = sum(player)
-    dealer_total = sum(dealer)
-    print(f"\nFinal Score — You: {player_total} | Dealer: {dealer_total}")
-    if dealer_total > 21 or player_total > dealer_total:
+    playerTotal = sum(player)
+    dealerTotal = sum(dealer)
+    print(f"\nFinal Score — You: {playerTotal} | Dealer: {dealerTotal}")
+    if dealerTotal > 21 or playerTotal > dealerTotal:
         print("Congratulation.. You win!")
-    elif dealer_total == player_total:
+    elif dealerTotal == playerTotal:
         print("It's a tie.")
     else:
         print("You lose.. Better luck next time!")
 
-play_blackjack()
+# Start the game
+if __name__ == "__main__":
+    play_blackjack()
