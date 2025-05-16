@@ -11,7 +11,7 @@
 # pip install qiskit-aer
 
 from qiskit import QuantumCircuit
-from qiskit_aer import Aer
+from qiskit_aer import AerSimulator
 
 def draw_card():
     # Create a quantum circuit with 4 qubits
@@ -20,8 +20,8 @@ def draw_card():
     qc.measure_all()  # Measure all qubits
 
     # Use the Aer simulator to execute the circuit
-    simulator = Aer.get_backend('qasm_simulator')
-    job = simulator.run(qc, shots=1)
+    simulator = AerSimulator()
+    job = simulator.run(qc) 
     result = job.result() 
     counts = result.get_counts()
 
