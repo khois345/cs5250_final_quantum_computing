@@ -1,12 +1,8 @@
 # Author: Khoi Tran
-# Date: 2025-05-10
+# Date: 2025-05-16
 # Description: We use Qiskit to implement a quantum version of the Blackjack game.
 # The game is played between a player and a dealer. The player can choose to hit or stand.
 # The dealer will reveal their hand and the player will win if their hand is closer to 21 than the dealer's hand.
-
-# The game uses quantum circuits to simulate the randomness of card drawing.
-# The player and dealer's hands are represented as quantum states, and the game logic is implemented using Qiskit.
-# The game is played in a Jupyter notebook environment, and the player can interact with the game using a simple command line interface.
 # THIS IS A PYTHON FILE VERSION OF THE GAME
 
 ## BEFORE RUNNING THE CODE, MAKE SURE YOU HAVE THE FOLLOWING LIBRARIES INSTALLED: QISKIT AND QISKIT-AER
@@ -25,14 +21,13 @@ def draw_card():
 
     # Use the Aer simulator to execute the circuit
     simulator = Aer.get_backend('qasm_simulator')
-    job = simulator.run(qc, shots=1)  # Run the circuit with 1 shot
-    
-    # Get the result of the measurement
+    job = simulator.run(qc, shots=1)
     result = job.result() 
     counts = result.get_counts()
 
     # Convert the measured binary string to an integer (1-10 for card values)
-    binaryResult = list(counts.keys())[0]
+    binaryResults = list(counts.keys())
+    binaryResult = binaryResults[0]
     cardValue = int(binaryResult, 2) % 10 + 1
     return cardValue
 
@@ -63,7 +58,7 @@ def play_blackjack():
 
     print(f"Dealer's cards: {dealer} (total: {sum(dealer)})")
     
-    # Dealer's turn: must hit until total is 17 or more
+    # Dealer's turn: it must hit until total is 17 or more
     while sum(dealer) < 17: 
         card = draw_card()
         dealer.append(card)
