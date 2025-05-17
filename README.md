@@ -1,4 +1,4 @@
-# 🎲 Quantum Blackjack - Qiskit
+# Quantum Blackjack - Qiskit
 This is a simple Blackjack game powered by quantum randomness using IBM's Qiskit framework.
 
 ## How Does Quantum Computing Work?
@@ -19,3 +19,9 @@ The difference between a classical bit is similar to a coin on the table where t
 ## Install required Python packages (must-do)
 pip install qiskit
 pip install qiskit-aer
+
+# Reference Pages: 
+- QuantumCircuit: https://docs.quantum.ibm.com/api/qiskit/circuit
+- measure_all: https://docs.quantum.ibm.com/guides/measure-qubits
+- Aer simulator: https://qiskit.github.io/qiskit-aer/tutorials/1_aersimulator.html
+- Python List: https://www.w3schools.com/python/python_lists.asp
